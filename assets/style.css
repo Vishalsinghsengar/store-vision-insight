@@ -1,0 +1,287 @@
+/* Store Vision Insight — professional theme */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+html, body, [class*="css"] {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+#MainMenu {visibility: hidden;}
+footer {visibility: hidden;}
+header[data-testid="stHeader"] {visibility: hidden; height: 0;}
+
+.block-container {
+    padding-top: 1.6rem;
+    max-width: 1180px;
+}
+
+/* ---------------- Hero header ---------------- */
+.app-header {
+    position: relative;
+    overflow: hidden;
+    padding: 2.1rem 2.4rem;
+    border-radius: 18px;
+    background: linear-gradient(120deg, #0b1120 0%, #111827 45%, #0369a1 130%);
+    color: #ffffff;
+    margin-bottom: 1.6rem;
+}
+
+.app-header::after {
+    content: "";
+    position: absolute;
+    top: -70px;
+    right: -70px;
+    width: 240px;
+    height: 240px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(56,189,248,0.35) 0%, rgba(56,189,248,0) 70%);
+}
+
+.app-header .badge {
+    display: inline-block;
+    padding: 0.22rem 0.7rem;
+    border-radius: 999px;
+    background: rgba(56,189,248,0.14);
+    border: 1px solid rgba(56,189,248,0.4);
+    color: #7dd3fc;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 0.9rem;
+}
+
+.app-header h1 {
+    margin: 0;
+    font-size: 2.15rem;
+    font-weight: 800;
+    letter-spacing: -0.6px;
+}
+
+.app-header p {
+    margin: 0.45rem 0 0 0;
+    font-size: 1.02rem;
+    color: #cbd5e1;
+    max-width: 640px;
+    position: relative;
+    z-index: 1;
+}
+
+/* ---------------- Section headings ---------------- */
+.section-heading {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin: 0 0 1rem 0;
+    padding-bottom: 0.6rem;
+    border-bottom: 2px solid #e2e8f0;
+}
+
+.section-heading .step-tag {
+    font-size: 0.66rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: #0369a1;
+    background: #e0f2fe;
+    padding: 0.18rem 0.55rem;
+    border-radius: 6px;
+    margin-right: 0.15rem;
+}
+
+.section-sub {
+    color: #64748b;
+    font-size: 0.86rem;
+    margin: -0.6rem 0 1rem 0;
+}
+
+/* ---------------- Native bordered containers (cards) ---------------- */
+div[data-testid="stVerticalBlockBorderWrapper"] {
+    border-radius: 14px !important;
+    border-color: #e2e8f0 !important;
+}
+
+/* ---------------- Metric cards ---------------- */
+div[data-testid="stMetric"] {
+    background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 0.85rem 0.9rem;
+    min-width: 0;
+    overflow: hidden;
+    transition: box-shadow .15s ease, transform .15s ease;
+}
+
+div[data-testid="stMetric"]:hover {
+    box-shadow: 0 4px 14px rgba(15, 23, 42, 0.08);
+    transform: translateY(-1px);
+}
+
+div[data-testid="stMetricLabel"] {
+    color: #64748b;
+    font-weight: 600;
+    font-size: 0.76rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+div[data-testid="stMetricValue"] {
+    color: #0f172a;
+    font-weight: 700;
+    font-size: clamp(1.35rem, 2.1vw, 1.85rem) !important;
+    line-height: 1.15 !important;
+    letter-spacing: -0.03em;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    min-width: 0;
+}
+
+/* Keep metric text inside its own card */
+div[data-testid="stMetricValue"] > div,
+div[data-testid="stMetricValue"] [data-testid="stMetricValue"] {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Smaller screens */
+@media (max-width: 1050px) {
+    div[data-testid="stMetricValue"] {
+        font-size: 1.45rem !important;
+    }
+}
+
+/* ---------------- File uploader ---------------- */
+[data-testid="stFileUploaderDropzone"] {
+    background: #f8fafc;
+    border-radius: 12px;
+    border: 1.5px dashed #cbd5e1;
+}
+
+/* ---------------- Buttons ---------------- */
+.stButton > button {
+    border-radius: 8px;
+    font-weight: 600;
+    padding: 0.5rem 1.4rem;
+    border: none;
+    box-shadow: 0 1px 2px rgba(15, 23, 42, 0.08);
+}
+
+.stButton > button:hover {
+    box-shadow: 0 4px 12px rgba(3, 105, 161, 0.25);
+}
+
+/* ---------------- Progress bar ---------------- */
+div[data-testid="stProgress"] > div > div {
+    border-radius: 999px;
+}
+
+/* ---------------- Insight cards ---------------- */
+.insight-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-left: 4px solid var(--tone-color, #64748b);
+    border-radius: 10px;
+    padding: 0.7rem 0.95rem;
+    margin-bottom: 0.55rem;
+}
+
+.insight-card .icon {
+    font-size: 1.15rem;
+    line-height: 1.5;
+}
+
+.insight-card .text {
+    font-size: 0.93rem;
+    color: #1e293b;
+    line-height: 1.5;
+}
+
+.insight-card .text strong {
+    color: #0f172a;
+}
+
+/* ---------------- Status pill ---------------- */
+.status-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: #ecfdf5;
+    color: #047857;
+    border: 1px solid #a7f3d0;
+    padding: 0.3rem 0.75rem;
+    border-radius: 999px;
+    font-size: 0.82rem;
+    font-weight: 600;
+}
+
+/* ---------------- Metrics table ---------------- */
+.metrics-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    overflow: hidden;
+    font-size: 0.88rem;
+}
+
+.metrics-table thead th {
+    background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
+    color: #475569;
+    font-weight: 700;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    text-align: left;
+    padding: 0.65rem 1rem;
+    border-bottom: 2px solid #e2e8f0;
+}
+
+.metrics-table tbody tr:not(:last-child) td {
+    border-bottom: 1px solid #eef2f7;
+}
+
+.metrics-table tbody tr:nth-child(even) {
+    background: #f8fafc;
+}
+
+.metrics-table tbody tr:hover {
+    background: #f0f9ff;
+}
+
+.metrics-table td {
+    padding: 0.6rem 1rem;
+    color: #1e293b;
+}
+
+.metrics-table td.metrics-metric {
+    color: #475569;
+    font-weight: 600;
+}
+
+.metrics-table td.metrics-value {
+    color: #0f172a;
+    font-weight: 700;
+}
+
+/* ---------------- Footer ---------------- */
+.app-footer {
+    text-align: center;
+    color: #94a3b8;
+    font-size: 0.78rem;
+    margin-top: 2.2rem;
+    padding-top: 1.1rem;
+    border-top: 1px solid #e2e8f0;
+}
+
+h3, h4 {
+    color: #0f172a;
+}
