@@ -123,7 +123,7 @@ st.markdown(
 os.makedirs(config.UPLOAD_DIR, exist_ok=True)
 
 with st.container(border=True):
-    section_heading("STEP 1", "📤", "Upload Footage", "Upload store surveillance footage to begin analysis.")
+    section_heading( "📤", "Upload Footage", "Upload store surveillance footage to begin analysis.")
     uploaded_file = st.file_uploader(
         "Upload store surveillance footage",
         type=config.ALLOWED_VIDEO_TYPES,
@@ -150,7 +150,7 @@ if st.session_state.video_path and st.session_state.metadata:
 
     st.write("")
     with st.container(border=True):
-        section_heading("STEP 2", "📄", "Video Metadata", "Technical details extracted directly from the uploaded file.")
+        section_heading( "📄", "Video Metadata", "Technical details extracted directly from the uploaded file.")
         c1, c2, c3, c4, c5 = st.columns(5)
         c1.metric("Resolution", meta["resolution"])
         c2.metric("Frame Rate", f'{meta["fps"]} fps')
@@ -160,7 +160,7 @@ if st.session_state.video_path and st.session_state.metadata:
 
     st.write("")
     with st.container(border=True):
-        section_heading("STEP 3", "🎯", "Object Tracking", "Running detection & tracking across every frame.")
+        section_heading( "🎯", "Object Tracking", "Running detection & tracking across every frame.")
         if not st.session_state.tracking_done:
             run_tracking_simulation(
                 meta["total_frames"],
@@ -178,7 +178,7 @@ if st.session_state.video_path and st.session_state.metadata:
 
     st.write("")
     # with st.container(border=True):
-    #     section_heading("STEP 4", "🎬", "Tracked Footage", "Output from the tracking model, with detections overlaid.")
+    #     section_heading( "🎬", "Tracked Footage", "Output from the tracking model, with detections overlaid.")
     #     tracked_path = os.path.join(config.TRACKED_VIDEO_DIR, meta["file_name"])
     #     if os.path.exists(tracked_path):
     #         st.video(tracked_path)
@@ -219,7 +219,7 @@ if st.session_state.video_path and st.session_state.metadata:
 
     st.write("")
     with st.container(border=True):
-        section_heading("STEP 5", "📊", "Insight Generation", "AI-generated observations from the tracked footage.")
+        section_heading( "📊", "Insight Generation", "AI-generated observations from the tracked footage.")
 
         if st.button("✨ Generate Insights", type="primary"):
             think_ph = st.empty()
