@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Uploaded demo videos should not be committed
+uploads/*
+!uploads/.gitkeep
