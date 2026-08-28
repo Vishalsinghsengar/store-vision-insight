@@ -12,8 +12,8 @@ nothing else in the app needs to change.
 # No countdown/timer is ever shown to the end user — only frame /
 # stage progress — but internally these values decide the pacing.
 # ------------------------------------------------------------------
-FRAME_TRACKING_DURATION = 8        # duration of the "tracking objects" animation
-INSIGHT_GENERATION_DURATION = 6    # duration of the "generating insights" animation
+FRAME_TRACKING_DURATION = 30        # duration of the "tracking objects" animation
+INSIGHT_GENERATION_DURATION = 5    # duration of the "generating insights" animation
 
 # ------------------------------------------------------------------
 # Insight generation
@@ -23,7 +23,7 @@ MAX_COUNTERS = 5                   # maximum number of billing counters simulate
 # ------------------------------------------------------------------
 # Branding
 # ------------------------------------------------------------------
-APP_TITLE = "Store Vision Insight"
+APP_TITLE = "Store Vision Intelligence"
 APP_ICON = "🛒"
 APP_TAGLINE = "AI-Powered Retail Analytics & Customer Behavior Intelligence"
 
