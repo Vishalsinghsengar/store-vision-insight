@@ -117,6 +117,111 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
+# ============================================================
+# OBSERVATION BOX - UI ONLY
+# ============================================================
+
+observation_options = [
+    "Wait time at every register",
+    "Customer & Associate interaction time",
+    "No. of customers near registers at peak hours",
+    "No. of associates present near registers",
+    "No. of large cart near PRO check out at the same time",
+]
+
+# Independent state for each filter
+if "observation_selections" not in st.session_state:
+    st.session_state.observation_selections = [False] * len(observation_options)
+
+
+# Styling
+st.markdown("""
+<style>
+/* Observation buttons */
+div[data-testid="stButton"] > button {
+    width: 100%;
+    min-height: 72px;
+    border-radius: 10px;
+    padding: 10px 12px;
+    font-size: 13px;
+    font-weight: 600;
+    text-align: left;
+    line-height: 1.35;
+    white-space: normal;
+}
+
+/* Normal / unselected button */
+div[data-testid="stButton"] > button[kind="secondary"] {
+    background: white;
+    border: 1px solid #d5dbe5;
+    color: #172033;
+}
+
+/* Hover */
+div[data-testid="stButton"] > button[kind="secondary"]:hover {
+    border-color: #1597d4;
+    color: #0878ad;
+    background: #f5fbff;
+}
+
+/* Selected button */
+div[data-testid="stButton"] > button[kind="primary"] {
+    background: #eaf7ff;
+    border: 1px solid #1597d4;
+    color: #0878ad;
+}
+
+/* Question */
+.observation-question {
+    font-size: 17px;
+    font-weight: 700;
+    color: #172033;
+    margin-bottom: 16px;
+}
+</style>
+""", unsafe_allow_html=True)
+
+
+# ============================================================
+# SINGLE OUTER BOX
+# ============================================================
+
+with st.container(border=True):
+
+    st.markdown(
+        '<div class="observation-question">'
+        'What would you like to observe in the video today?'
+        '</div>',
+        unsafe_allow_html=True
+    )
+
+    cols = st.columns(5, gap="small")
+
+    for i, observation in enumerate(observation_options):
+
+        with cols[i]:
+
+            selected = st.session_state.observation_selections[i]
+
+            # Add check mark only to selected card
+            button_text = (
+                f"✓  {observation}"
+                if selected
+                else observation
+            )
+
+            if st.button(
+                button_text,
+                key=f"observation_button_{i}",
+                use_container_width=True,
+                type="primary" if selected else "secondary",
+            ):
+                # ONLY THIS CARD changes
+                st.session_state.observation_selections[i] = not selected
+
+                # UI rerun only
+                st.rerun()
+
 # ------------------------------------------------------------------
 # Upload
 # ------------------------------------------------------------------
